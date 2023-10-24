@@ -14,6 +14,7 @@ namespace Entities.Entities
         public int Id { get; set; }
 
         [Display(Name = "Nome")]
-        public string Name { get; set; }
+        [MaxLength(255)]
+        public string Nome { get; set; }
     }
 }
