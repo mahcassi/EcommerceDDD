@@ -1,11 +1,6 @@
 ﻿using Domain.Interfaces.InterfaceProduct;
 using Domain.Interfaces.InterfaceServices;
 using Entities.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Services
 {
@@ -20,20 +15,20 @@ namespace Domain.Services
 
         public async Task AddProduct(Product product)
         {
-            var validateName = product.ValidatePropertyString(product.Name, "Name");
-            var validatePrice = product.ValidatePropertyDecimal(product.Price, "Price");
+            var validateName = product.ValidatePropertyString(product.Nome, "Name");
+            var validatePrice = product.ValidatePropertyDecimal(product.Valor, "Price");
 
             if (validateName && validatePrice)
             {
-                product.State = true;
+                product.Estado = true;
                 await _product.Add(product);
             }
         }
 
         public async Task UpdateProduct(Product product)
         {
-            var validateName = product.ValidatePropertyString(product.Name, "Name");
-            var validatePrice = product.ValidatePropertyDecimal(product.Price, "Price");
+            var validateName = product.ValidatePropertyString(product.Nome, "Name");
+            var validatePrice = product.ValidatePropertyDecimal(product.Valor, "Price");
 
             if (validateName && validatePrice)
             {
