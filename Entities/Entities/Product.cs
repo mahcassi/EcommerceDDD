@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
-    [Table("Produto")]
+    [Table("TB_PRODUTO")]
     public class Produto : Base
     {
         [Column("PRD_VALOR")]
