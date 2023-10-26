@@ -16,7 +16,7 @@ namespace Entities.Entities
         [ForeignKey("TB_PRODUTO")]
         [Column(Order = 1)]
         public int IdProduto { get; set; }
-        public virtual Product Produto { get; set; }
+        public virtual Produto Produto { get; set; }
 
         [Display(Name = "Usuário")]
         [ForeignKey("ApplicationUser")]

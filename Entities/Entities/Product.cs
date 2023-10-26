@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
-    [Table("Product")]
-    public class Product : Base
+    [Table("Produto")]
+    public class Produto : Base
     {
         [Column("PRD_VALOR")]
         [Display(Name = "Valor")]

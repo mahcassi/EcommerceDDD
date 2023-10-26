@@ -1,5 +1,5 @@
 ﻿using Application.Interfaces;
-using Domain.Interfaces.InterfaceProduct;
+using Domain.Interfaces.InterfaceProduto;
 using Domain.Interfaces.InterfaceServices;
 using Entities.Entities;
 using System;
@@ -10,49 +10,49 @@ using System.Threading.Tasks;
 
 namespace Application.OpenApp
 {
-    public class AppProduct : IProductApp
+    public class AppProduto : IProdutoApp
     {
-        private readonly IProduct _product;
+        private readonly IProduto _Produto;
 
-        private readonly IServiceProduct _serviceProduct;
-        public AppProduct(IProduct product, IServiceProduct serviceProduct)
+        private readonly IServiceProduto _serviceProduto;
+        public AppProduto(IProduto Produto, IServiceProduto serviceProduto)
         {
-            _product = product;
-            _serviceProduct = serviceProduct;
+            _Produto = Produto;
+            _serviceProduto = serviceProduto;
         }
-        public async Task AddProduct(Product product)
+        public async Task AddProduto(Produto Produto)
         {
-            await _serviceProduct.AddProduct(product);
-        }
-
-        public async Task UpdateProduct(Product product)
-        {
-            await _serviceProduct.UpdateProduct(product);
+            await _serviceProduto.AddProduto(Produto);
         }
 
-        public async Task Add(Product Object)
+        public async Task UpdateProduto(Produto Produto)
         {
-            await _product.Add(Object);
+            await _serviceProduto.UpdateProduto(Produto);
         }
 
-        public async Task Delete(Product Object)
+        public async Task Add(Produto Object)
         {
-            await _product.Delete(Object);
+            await _Produto.Add(Object);
         }
 
-        public async Task<Product> GetEntityById(int Id)
+        public async Task Delete(Produto Object)
         {
-            return await _product.GetEntityById(Id);
+            await _Produto.Delete(Object);
         }
 
-        public async Task<List<Product>> List()
+        public async Task<Produto> GetEntityById(int Id)
         {
-           return await _product.List();
+            return await _Produto.GetEntityById(Id);
         }
 
-        public async Task Update(Product Object)
+        public async Task<List<Produto>> List()
         {
-            await _product.Update(Object); ;
+           return await _Produto.List();
+        }
+
+        public async Task Update(Produto Object)
+        {
+            await _Produto.Update(Object); ;
         }
         
     }

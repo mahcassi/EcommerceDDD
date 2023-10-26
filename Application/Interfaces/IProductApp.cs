@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Interfaces
 {
-    public interface IProductApp: IGenericApp<Product>
+    public interface IProdutoApp: IGenericApp<Produto>
     {
-        Task AddProduct(Product product);
-        Task UpdateProduct(Product product);
+        Task AddProduto(Produto Produto);
+        Task UpdateProduto(Produto Produto);
     }
 }

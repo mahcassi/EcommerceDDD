@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Interfaces.InterfaceServices
 {
-    public interface IServiceProduct
+    public interface IServiceProduto
     {
-        Task AddProduct(Product product);
-        Task UpdateProduct(Product product);
+        Task AddProduto(Produto Produto);
+        Task UpdateProduto(Produto Produto);
     }
 }

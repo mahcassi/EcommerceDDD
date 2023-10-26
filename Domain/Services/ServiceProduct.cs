@@ -1,38 +1,38 @@
-﻿using Domain.Interfaces.InterfaceProduct;
+﻿using Domain.Interfaces.InterfaceProduto;
 using Domain.Interfaces.InterfaceServices;
 using Entities.Entities;
 
 namespace Domain.Services
 {
-    public class ServiceProduct : IServiceProduct
+    public class ServiceProduto : IServiceProduto
     {
-        private readonly IProduct _product;
+        private readonly IProduto _Produto;
 
-        public ServiceProduct(IProduct product)
+        public ServiceProduto(IProduto Produto)
         {
-            _product = product;
+            _Produto = Produto;
         }
 
-        public async Task AddProduct(Product product)
+        public async Task AddProduto(Produto Produto)
         {
-            var validateName = product.ValidatePropertyString(product.Nome, "Name");
-            var validatePrice = product.ValidatePropertyDecimal(product.Valor, "Price");
+            var validateName = Produto.ValidatePropertyString(Produto.Nome, "Name");
+            var validatePrice = Produto.ValidatePropertyDecimal(Produto.Valor, "Price");
 
             if (validateName && validatePrice)
             {
-                product.Estado = true;
-                await _product.Add(product);
+                Produto.Estado = true;
+                await _Produto.Add(Produto);
             }
         }
 
-        public async Task UpdateProduct(Product product)
+        public async Task UpdateProduto(Produto Produto)
         {
-            var validateName = product.ValidatePropertyString(product.Nome, "Name");
-            var validatePrice = product.ValidatePropertyDecimal(product.Valor, "Price");
+            var validateName = Produto.ValidatePropertyString(Produto.Nome, "Name");
+            var validatePrice = Produto.ValidatePropertyDecimal(Produto.Valor, "Price");
 
             if (validateName && validatePrice)
             {
-                await _product.Update(product);
+                await _Produto.Update(Produto);
             }
         }
     }
