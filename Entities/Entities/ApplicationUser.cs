@@ -52,6 +52,6 @@ namespace Entities.Entities
 
         [Column("USR_TIPO")]
         [Display(Name = "Tipo")]
-        public TipoUsuario Tipo { get; set; }
+        public ETipoUsuario Tipo { get; set; }
     }
 }
