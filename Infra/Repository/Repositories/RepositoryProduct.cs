@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.InterfaceProduct;
+﻿using Domain.Interfaces.InterfaceProduto;
 using Entities.Entities;
 using Infra.Repository.Generics;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infra.Repository.Repositories
 {
-    public class RepositoryProduct : RepositoryGenerics<Product>, IProduct
+    public class RepositoryProduto : RepositoryGenerics<Produto>, IProduto
     {
     }
 }
