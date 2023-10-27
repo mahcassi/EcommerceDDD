@@ -10,8 +10,17 @@ using System.Threading.Tasks;
 namespace Entities.Entities
 {
     [Table("TB_PRODUTO")]
-    public class Produto : Base
+    public class Produto : Notifiers
     {
+        [Column("PRD_ID")]
+        [Display(Name = "Código")]
+        public int Id { get; set; }
+
+        [Column("PRD_NOME")]
+        [Display(Name = "Nome")]
+        [MaxLength(255)]
+        public string Nome { get; set; }
+
         [Column("PRD_VALOR")]
         [Display(Name = "Valor")]
         public decimal Valor { get; set; }
@@ -38,8 +47,7 @@ namespace Entities.Entities
         [ForeignKey("ApplicationUser")]
         [Column(Order = 1)]
         public string UserId { get; set; }
-        public virtual ApplicationUser ApplicationUser { get;set; }
-
+        public virtual ApplicationUser ApplicationUser { get; set; }
         [Column("PRD_DATA_CADASTRO")]
         [Display(Name = "Data de Cadastro")]
         public DateTime DataCadastro { get; set; }
