@@ -15,6 +15,15 @@ namespace Infra.Configuration
 
         public DbSet<CompraUsuario> CompraUsuario { get; set; }
 
+        public DbSet<IdentityUser> IdentityUser { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<IdentityUser>().ToTable("AspNetUsers").HasKey(t => t.Id);
+
+            base.OnModelCreating(builder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
