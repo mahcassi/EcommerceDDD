@@ -1,5 +1,13 @@
+using Application.Interfaces;
+using Application.OpenApp;
+using Domain.Interfaces.Generics;
+using Domain.Interfaces.InterfaceProduto;
+using Domain.Interfaces.InterfaceServices;
+using Domain.Services;
 using Entities.Entities;
 using Infra.Configuration;
+using Infra.Repository.Generics;
+using Infra.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +29,12 @@ builder.Services.AddEntityFrameworkSqlServer()
                );
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ContextBase>();
+
+builder.Services.AddSingleton(typeof(IGenerics<>), typeof(RepositoryGenerics<>));
+builder.Services.AddSingleton<IProduto, RepositoryProduto>();
+
+builder.Services.AddSingleton<IProdutoApp, AppProduto>();
+builder.Services.AddSingleton<IServiceProduto, ServiceProduto>();
 
 var app = builder.Build();
 
